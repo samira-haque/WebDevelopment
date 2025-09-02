@@ -1,0 +1,47 @@
+h1{
+            color: blue;
+            background-color: blanchedalmond;
+            height: 90px;
+            width: 500px;
+        }
+        #something{
+            font-size: 40px;
+            color: steelblue;
+        }
+
+        .friend
+    {
+        background-color: greenyellow;
+    }
+        img{
+            width: 100%;
+        }
+        .new{
+            color: red;
+        }
+
+        p{
+            color: salmon;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: sans-serif ;
+        }
+        .blog{
+            color: green;
+            background-color: skyblue;
+        }
+
+        .blog{
+            border: 5px solid green;
+            border-radius: 50px;
+            margin: 1%;
+            width: 30%;
+            display: inline-block;
+        }
+        h3{
+            text-align: center;
+        }
+
+        p{
+            text-align: justify;
+        }
