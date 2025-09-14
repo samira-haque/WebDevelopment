@@ -1,0 +1,1 @@
+var absoluteNumber = Math.floor(number);
