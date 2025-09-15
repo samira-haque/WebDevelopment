@@ -1,0 +1,1 @@
+const reminder= year % 4;
