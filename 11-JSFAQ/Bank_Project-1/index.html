@@ -30,7 +30,7 @@
             <div class="col-md-4">
                 <div class="Withdraw status">
                     <h5>Withdraw</h5>
-                <h2>$00</h2>
+                <h2>$ <span id="currentWithdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -53,9 +53,10 @@
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Withdraw</h4>
-                <input type="text" class="form-control" placeholder="dollar ammount you want to withdraw">
+                <input id="withdrawAmount" type="text" class="form-control" placeholder="dollar amount you want to withdraw">
                 <br>
-                <button class="btn btn-success">Withdraw</button></div>
+                <button id="addWithdraw" class="btn btn-success">Withdraw</button>
+
                 </div>
         </div>
     </div>
@@ -69,34 +70,6 @@
             transactionArea.style.display = "block";
         
         })
-
-
-    //     const depositBtn = document.getElementById("addDeposit");
-    // depositBtn.addEventListener("click", function () {
-    //     const current = document.getElementById(id).value;
-    //     const currentNumber = parseFloat(current);
-
-    //     // const currentDeposit = document.getElementById("currentDeposit").innerText;
-    //     // const currentDepositNumber = parseFloat(currentDeposit);
-    //     // const totalDeposit = depositNumber + currentDepositNumber;
-    //     // document.getElementById("currentDeposit").innerText = totalDeposit;
-
-    //     updateSpanText("currentDeposit",depositNumber);
-
-
-    //     updateSpanText("currentBalance",depositNumber);
-    //     // optional: clear input field
-    //     document.getElementById("depositAmount").value = "";
-    // })
-    
-    // function updateSpanText(id, ammount){
-    //     const current = document.getElementById(id).innerText;
-    //     const currentNumber = parseFloat(currentBalance);
-    //     const totalAmount = currentNumber + ammount;
-    //     document.getElementById(id).innerText = totalAmount;
-
-
-    // }
 
     const depositBtn = document.getElementById("addDeposit");
 depositBtn.addEventListener("click", function () {
@@ -115,16 +88,39 @@ depositBtn.addEventListener("click", function () {
     document.getElementById("depositAmount").value = "";
 })
 
-function updateSpanText(id, amount){
+
+// Withdraw button event handler
+const withdrawBtn = document.getElementById("addWithdraw");
+withdrawBtn.addEventListener("click", function () {
+    const withdrawNumber = getInputNumber("withdrawAmount");
+
+    if (isNaN(withdrawNumber) || withdrawNumber <= 0) {
+        alert("Please enter a valid withdraw amount!");
+        return;
+    }
+
+    // update total Withdraw
+    updateSpanText("currentWithdraw", withdrawNumber);
+
+    // update Balance (subtract)
+    updateSpanText("currentBalance", -withdrawNumber);
+
+    // clear input field
+    document.getElementById("withdrawAmount").value = "";
+});
+
+function getInputNumber(id) {
+    const amount = document.getElementById(id).value;
+    const amountNumber = parseFloat(amount);
+    return amountNumber;
+}
+
+function updateSpanText(id, amount) {
     const current = document.getElementById(id).innerText;
     const currentNumber = parseFloat(current);
     const totalAmount = currentNumber + amount;
     document.getElementById(id).innerText = totalAmount;
 }
-
-       
-        
-
     </script>
 </body>
 </html>
